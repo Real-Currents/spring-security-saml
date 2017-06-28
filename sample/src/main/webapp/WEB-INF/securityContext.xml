@@ -154,6 +154,18 @@
                     <property name="parserPool" ref="parserPool"/>
                 </bean>
                 -->
+                <bean class="org.opensaml.saml2.metadata.provider.HTTPMetadataProvider">
+                    <!-- URL containing the metadata -->
+                    <constructor-arg>
+                        <!-- This URL should look something like this: https://example.okta.com/app/abc0defghijK1lmN23o4/sso/saml/metadata -->
+                        <value type="java.lang.String">https://example.okta.com/app/abc0defghijK1lmN23o4/sso/saml/metadata</value>
+                    </constructor-arg>
+                    <!-- Timeout for metadata loading in ms -->
+                    <constructor-arg>
+                        <value type="int">5000</value>
+                    </constructor-arg>
+                    <property name="parserPool" ref="parserPool"/>
+                </bean>
             </list>
         </constructor-arg>
         <!-- OPTIONAL used when one of the metadata files contains information about this service provider -->
